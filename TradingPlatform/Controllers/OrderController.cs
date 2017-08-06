@@ -9,9 +9,9 @@ namespace TradingPlatform.Controllers
     public class OrderController : Controller
     {
         // GET: Order
-        public ActionResult Index()
+        public ActionResult ForwardAddOrder()
         {
-            return View();
+            return View("AddOrder");
         }
     }
 }
