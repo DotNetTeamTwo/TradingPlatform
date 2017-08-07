@@ -7,15 +7,18 @@ using System.Web;
 
 namespace TradingPlatform.Models
 {
-    [Table("Trade")]
-    public class Trade
+    [Table("Order")]
+    public class Order
     {
         [Key]
         public int Id { get; set; }
-        public double Price { get; set; }
+        public bool IsBuy { get; set; }
+        public DateTime DateTime { get; set; }
         public int Quantity { get; set; }
-        public bool IsSuccess { get; set; }
 
+        public virtual Strategy Strategy { get; set; }
         public virtual Execution Execution { get; set; }
+        public virtual OrderBook OrderBook { get; set; }
+        public virtual Trader Trader { get; set; }
     }
 }

@@ -159,12 +159,27 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DBContext.cs" />
-    <Compile Include="Models\MarketData.cs" />
-    <Compile Include="Models\Stock.cs" />
+    <Compile Include="Models\Execution.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderBook.cs" />
     <Compile Include="Models\Strategy.cs" />
     <Compile Include="Models\Trade.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.Impl\ExecutionService.cs" />
+    <Compile Include="Service.Impl\MonitoredStockService.cs" />
+    <Compile Include="Service.Impl\OrderBookService.cs" />
+    <Compile Include="Service.Impl\OrderService.cs" />
+    <Compile Include="Service.Impl\StrategyService.cs" />
+    <Compile Include="Service.Impl\TraderService.cs" />
+    <Compile Include="Service.Impl\TradeService.cs" />
+    <Compile Include="Service\IExecutionService.cs" />
+    <Compile Include="Service\IMonitoredStockService.cs" />
+    <Compile Include="Service\IOrderBookService.cs" />
+    <Compile Include="Service\IOrderService.cs" />
+    <Compile Include="Service\IStrategyService.cs" />
+    <Compile Include="Service\ITraderService.cs" />
+    <Compile Include="Service\ITradeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

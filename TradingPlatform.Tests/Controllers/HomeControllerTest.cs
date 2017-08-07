@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TradingPlatform;
 using TradingPlatform.Controllers;
+using TradingPlatform.Models;
 
 namespace TradingPlatform.Tests.Controllers
 {

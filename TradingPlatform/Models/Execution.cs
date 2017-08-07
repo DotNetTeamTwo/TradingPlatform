@@ -7,15 +7,14 @@ using System.Web;
 
 namespace TradingPlatform.Models
 {
-    [Table("Trader")]
-    public class Trader
+    [Table("Execution")]
+    public class Execution
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Gender { get; set; }
+        public DateTime DateTime { get; set; }
 
-        public virtual ICollection<OrderBook> OrderBooks { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual ICollection<Trade> Trades { get; set; }
     }
 }
