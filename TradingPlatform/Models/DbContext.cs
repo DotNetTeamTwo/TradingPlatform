@@ -10,7 +10,7 @@ namespace TradingPlatform.Models
     {
         public DBContext() : base("name=DBContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DbContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DBContext>());
         }
 
         public DbSet<Execution> Stocks { get; set; }

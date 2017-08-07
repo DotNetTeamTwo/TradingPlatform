@@ -51,5 +51,20 @@ namespace TradingPlatform.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void CreateDatabase()
+        {
+            using (DBContext context = new DBContext())
+            {
+                context.Traders.Add(new Trader { Id = 1, Gender = "Male", Name = "lixing", Orders = null, OrderBooks = null });
+                context.SaveChanges();
+
+                Trader Trader = context.Traders.Find(1);
+                context.SaveChanges();
+
+                Assert.IsNotNull(Trader);
+            }
+        }
     }
 }

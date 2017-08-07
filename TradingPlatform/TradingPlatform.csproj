@@ -180,6 +180,13 @@
     <Compile Include="Service\IStrategyService.cs" />
     <Compile Include="Service\ITraderService.cs" />
     <Compile Include="Service\ITradeService.cs" />
+    <Compile Include="Util.Strategy\FOKStrategy.cs" />
+    <Compile Include="Util.Strategy\GTCStrategy.cs" />
+    <Compile Include="Util.Strategy\IOCStrategy.cs" />
+    <Compile Include="Util.Strategy\LimitOrderStrategy.cs" />
+    <Compile Include="Util.Strategy\MarketPriceStrategy.cs" />
+    <Compile Include="Util\CSVUtil.cs" />
+    <Compile Include="Util\ExcelUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
