@@ -26,5 +26,15 @@ namespace TradingPlatform.Service.Impl
 
             context.SaveChanges();
         }
+
+        public List<Strategy> FindAllStrategies()
+        {
+            return context.Strategies.ToList();
+        }
+
+        public Strategy FindStrategyById(int strategyId)
+        {
+            return context.Strategies.Where(s => s.Id == strategyId).First();
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace TradingPlatform.Service.Impl
             context.SaveChanges();
         }
 
+        public Trader FindTraderById(int traderId)
+        {
+            return context.Traders.Where(s => s.Id == traderId).First();
+        }
+
         public Trader FindTraderByName(string name)
         {
             return context.Traders.Where(s => s.Name == name).First();

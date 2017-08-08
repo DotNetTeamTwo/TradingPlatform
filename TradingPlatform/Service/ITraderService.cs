@@ -12,5 +12,6 @@ namespace TradingPlatform.Service
         void AddTrader(Trader Trader);
         void UpdateTrader(Trader Trader);
         Trader FindTraderByName(string name);
+        Trader FindTraderById(int traderId);
     }
 }

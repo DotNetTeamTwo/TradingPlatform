@@ -93,6 +93,7 @@
     <Compile Include="Service\OrderBookServiceTest.cs" />
     <Compile Include="Service\TraderServiceTest.cs" />
     <Compile Include="Service\TradeServiceTest.cs" />
+    <Compile Include="Service\StrategyServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

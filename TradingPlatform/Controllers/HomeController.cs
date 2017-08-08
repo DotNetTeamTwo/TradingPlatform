@@ -11,12 +11,19 @@ namespace TradingPlatform.Controllers
 {
     public class HomeController : Controller
     {
-        private IOrderBookService service = new OrderBookService();
+        private IOrderBookService orderBookService = new OrderBookService();
+        private IStrategyService strategyService = new StrategyService();
+        private ITraderService traderService = new TraderService();
 
         public ActionResult Index()
         {
-            List<OrderBook> orderBooks = service.FindAllOrderBooks();
+            List<OrderBook> orderBooks = orderBookService.FindAllOrderBooks();
+            List<Strategy> strategies = strategyService.FindAllStrategies();
+            Trader trader = traderService.FindTraderByName("lx");
+
             ViewData["orderBooks"] = orderBooks;
+            ViewData["strategies"] = strategies;
+            ViewData["trader"] = trader;
 
             return View();
         }

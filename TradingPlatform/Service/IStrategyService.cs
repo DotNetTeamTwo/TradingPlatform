@@ -11,5 +11,7 @@ namespace TradingPlatform.Service
     {
         void AddStrategy(Strategy strategy);
         void DeleteStrategyByName(string name);
+        Strategy FindStrategyById(int strategyId);
+        List<Strategy> FindAllStrategies();
     }
 }

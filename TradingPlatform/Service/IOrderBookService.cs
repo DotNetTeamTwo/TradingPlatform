@@ -10,6 +10,7 @@ namespace TradingPlatform.Service
     public interface IOrderBookService
     {
         void AddOrderBooK(OrderBook orderBook);
+        OrderBook FindOrderBookById(int orderBookId);
         List<OrderBook> FindOrderBookBySymbol(string symbol);
         List<OrderBook> FindAllOrderBooks();
     }

@@ -20,6 +20,11 @@ namespace TradingPlatform.Service.Impl
             return context.OrderBooks.ToList();
         }
 
+        public OrderBook FindOrderBookById(int orderBookId)
+        {
+            return context.OrderBooks.Where(s => s.Id == orderBookId).First();
+        }
+
         public List<OrderBook> FindOrderBookBySymbol(string symbol)
         {
             return context.OrderBooks.Where(s => s.Symbol == symbol).ToList();
