@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TradingPlatform.Service;
 using TradingPlatform.Service.Impl;
 using TradingPlatform.Models;
+using TradingPlatform.Util;
 
 namespace TradingPlatform.Tests.Service
 {
@@ -24,8 +25,20 @@ namespace TradingPlatform.Tests.Service
         [TestMethod]
         public void TestAddOrderBook()
         {
-            OrderBook orderBook = new OrderBook { IsBit = false, Orders = null, Price = 23, Quantity = 35, Symbol = "Apple", Traders = null };
-            service.AddOrderBooK(orderBook);
+            //OrderBook orderBook = new OrderBook { IsBit = false, Orders = null, Price = 23, Quantity = 35, Symbol = "Apple", Traders = null };
+            //service.AddOrderBooK(orderBook);
+            List<List<string>> lists = ExcelUtil.ParseExcel("../../test.xlsx");
+            for (int i = 0; i < lists.Count; i++)
+            {
+                bool isBit = false;
+                if (lists[i][1].Equals("B"))
+                    isBit = true;
+                double price = Convert.ToDouble(lists[i][2]);
+                int quantity = Convert.ToInt32(lists[i][3]);
+                string symbol = lists[i][0];
+                OrderBook orderBook = new OrderBook { IsBit = isBit, Orders = null, Price = price, Quantity = quantity, Symbol = symbol, Traders = null };
+                service.AddOrderBooK(orderBook);
+            }
         }
     }
 }
