@@ -7,10 +7,10 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface IOrderBookService
+    public interface IOrderBookService
     {
         void AddOrderBooK(OrderBook orderBook);
-        List<OrderBook> FindOrderBookBySymbol();
+        List<OrderBook> FindOrderBookBySymbol(string symbol);
         List<OrderBook> FindAllOrderBooks();
     }
 }

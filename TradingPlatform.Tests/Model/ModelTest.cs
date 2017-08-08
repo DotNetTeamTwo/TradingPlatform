@@ -4,7 +4,7 @@ using TradingPlatform.Models;
 namespace TradingPlatform.Tests.Model
 {
     [TestClass]
-    class ModelTest
+    public class ModelTest
     {
         [TestMethod]
         public void CreateDatabase()
@@ -19,6 +19,12 @@ namespace TradingPlatform.Tests.Model
 
                 Assert.IsNotNull(Trader);
             }
+        }
+
+        [TestMethod]
+        public void test()
+        {
+            Assert.AreEqual(1, 1);
         }
     }
 }

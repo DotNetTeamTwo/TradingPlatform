@@ -8,14 +8,23 @@ namespace TradingPlatform.Service.Impl
 {
     public class StrategyService : IStrategyService
     {
+        private readonly DBContext context = new DBContext();
+
         public void AddStrategy(Strategy strategy)
         {
-            throw new NotImplementedException();
+            context.Strategies.Add(strategy);
+            context.SaveChanges();
         }
 
         public void DeleteStrategyByName(string name)
         {
-            throw new NotImplementedException();
+            Strategy strategy = context.Strategies.Where(s => s.Name == name).First();
+            if (strategy != null)
+            {
+                context.Strategies.Remove(strategy);
+            }
+
+            context.SaveChanges();
         }
     }
 }

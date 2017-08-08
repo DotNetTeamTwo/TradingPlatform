@@ -8,6 +8,7 @@ namespace TradingPlatform.Service.Impl
 {
     public class MonitoredStockService : IMonitoredStockService
     {
+        private readonly DBContext context = new DBContext();
         public void AddMonitoredStock(int traderId, int orderBookId)
         {
             throw new NotImplementedException();
@@ -20,7 +21,7 @@ namespace TradingPlatform.Service.Impl
 
         public List<OrderBook> FindMonitoredStockByTrader(int traderId)
         {
-            throw new NotImplementedException();
+            return context.Traders.Where(s => s.Id == traderId).First().OrderBooks.ToList();
         }
     }
 }

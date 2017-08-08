@@ -7,7 +7,7 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface IOrderService
+    public interface IOrderService
     {
         void AddOrder(Order order);
         List<Order> FindAll();

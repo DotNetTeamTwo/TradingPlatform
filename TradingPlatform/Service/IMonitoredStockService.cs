@@ -7,7 +7,7 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface IMonitoredStockService
+    public interface IMonitoredStockService
     {
         void AddMonitoredStock(int traderId, int orderBookId);
         void DeleteMonitoredStock(int traderId, int orderBookId);

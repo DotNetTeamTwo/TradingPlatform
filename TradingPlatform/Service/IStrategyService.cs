@@ -7,7 +7,7 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface IStrategyService
+    public interface IStrategyService
     {
         void AddStrategy(Strategy strategy);
         void DeleteStrategyByName(string name);

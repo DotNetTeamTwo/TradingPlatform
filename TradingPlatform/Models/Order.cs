@@ -15,6 +15,7 @@ namespace TradingPlatform.Models
         public bool IsBuy { get; set; }
         public DateTime DateTime { get; set; }
         public int Quantity { get; set; }
+        public double Price { get; set; }
 
         public virtual Strategy Strategy { get; set; }
         public virtual Execution Execution { get; set; }

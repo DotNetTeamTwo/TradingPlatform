@@ -13,7 +13,7 @@ namespace TradingPlatform.Models
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DBContext>());
         }
 
-        public DbSet<Execution> Stocks { get; set; }
+        public DbSet<Execution> Executions { get; set; }
         public DbSet<Trader> Traders { get; set; }
         public DbSet<Trade> Trades { get; set; }
         public DbSet<Order> Orders { get; set; }

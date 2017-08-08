@@ -8,9 +8,11 @@ namespace TradingPlatform.Service.Impl
 {
     public class TradeService : ITradeService
     {
+        private readonly DBContext context = new DBContext();
+
         public List<Trade> FindTradeByExecutionId(int executionId)
         {
-            throw new NotImplementedException();
+            return context.Executions.Where(s => s.Id == executionId).First().Trades.ToList();
         }
     }
 }

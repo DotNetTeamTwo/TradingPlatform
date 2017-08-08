@@ -7,5 +7,6 @@ namespace TradingPlatform.Util
 {
     public class ExcelUtil
     {
+
     }
 }

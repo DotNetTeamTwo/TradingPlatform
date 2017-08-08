@@ -8,14 +8,16 @@ namespace TradingPlatform.Service.Impl
 {
     public class ExecutionService : IExecutionService
     {
+        private readonly DBContext context = new DBContext();
         public void AddExecution(Execution execution)
         {
-            throw new NotImplementedException();
+            context.Executions.Add(execution);
+            context.SaveChanges();
         }
 
         public Execution FindExecutionByOrderId(int orderId)
         {
-            throw new NotImplementedException();
+            return context.Executions.Where(s => s.Order.Id == orderId).First();
         }
     }
 }

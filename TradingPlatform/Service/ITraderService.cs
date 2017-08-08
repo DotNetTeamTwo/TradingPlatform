@@ -7,10 +7,10 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface ITraderService
+    public interface ITraderService
     {
         void AddTrader(Trader Trader);
         void UpdateTrader(Trader Trader);
-        List<Trader> FindTraderByName(string name);
+        Trader FindTraderByName(string name);
     }
 }

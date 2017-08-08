@@ -8,19 +8,21 @@ namespace TradingPlatform.Service.Impl
 {
     public class OrderService : IOrderService
     {
+        private readonly DBContext context = new DBContext();
+
         public void AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            context.Orders.Add(order);
         }
 
         public List<Order> FindAll()
         {
-            throw new NotImplementedException();
+            return context.Orders.ToList();
         }
 
         public List<Order> FindOrderByTrader(Trader trader)
         {
-            throw new NotImplementedException();
+            return context.Orders.Where(s => s.Trader.Name == trader.Name).ToList();
         }
     }
 }

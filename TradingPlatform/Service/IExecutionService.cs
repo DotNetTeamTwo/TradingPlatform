@@ -7,7 +7,7 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface IExecutionService
+    public interface IExecutionService
     {
         Execution FindExecutionByOrderId(int orderId);
         void AddExecution(Execution execution);

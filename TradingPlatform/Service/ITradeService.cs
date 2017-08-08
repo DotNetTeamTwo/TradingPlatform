@@ -7,7 +7,7 @@ using TradingPlatform.Models;
 
 namespace TradingPlatform.Service
 {
-    interface ITradeService
+    public interface ITradeService
     {
         List<Trade> FindTradeByExecutionId(int executionId);
     }
