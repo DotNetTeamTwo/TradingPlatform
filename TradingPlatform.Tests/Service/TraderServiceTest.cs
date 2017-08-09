@@ -22,9 +22,11 @@ namespace TradingPlatform.Tests.Service
         {
             Trader trader1 = new Trader { Name = "lx", Gender = "Male"};
             Trader trader2 = new Trader { Name = "zsl", Gender = "Female"};
+            //Trader trader3 = new Trader { Gender = "Male", Name = "lixing" };
 
             service.AddTrader(trader1);
             service.AddTrader(trader2);
+           // service.AddTrader(trader3);
         }
 
         [TestMethod]

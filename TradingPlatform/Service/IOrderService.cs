@@ -12,5 +12,6 @@ namespace TradingPlatform.Service
         void AddOrder(Order order);
         List<Order> FindAll();
         List<Order> FindOrderByTrader(Trader trader);
+        int GetOrderId(Order order);
     }
 }

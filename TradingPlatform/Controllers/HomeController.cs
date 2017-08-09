@@ -14,11 +14,13 @@ namespace TradingPlatform.Controllers
 
         public ActionResult Index()
         {
-            List<OrderBook> orderBooks = orderBookService.FindAllDistinctBooks();
+            List<OrderBook> orderBooks = orderBookService.FindAllOrderBooks();
+            List<OrderBook> symbols = orderBookService.FindAllDistinctBooks();
             List<Strategy> strategies = strategyService.FindAllStrategies();
-            Trader trader = traderService.FindTraderByName("lx");
+            Trader trader = traderService.FindTraderByName("lixing");
 
             ViewData["orderBooks"] = orderBooks;
+            ViewData["symbols"] = symbols;
             ViewData["strategies"] = strategies;
             ViewData["trader"] = trader;
 

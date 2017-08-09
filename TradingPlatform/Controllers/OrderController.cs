@@ -49,6 +49,7 @@ namespace TradingPlatform.Controllers
             }
 
             orderService.AddOrder(order);
+            //int id  = orderService.GetOrderId(order);
 
             Execution execution = MakeTrade(order);
             executionService.AddExecution(execution);
@@ -88,7 +89,7 @@ namespace TradingPlatform.Controllers
 
         public ActionResult OrderHistory()
         {
-            Trader trader = traderService.FindTraderByName("lx");
+            Trader trader = traderService.FindTraderByName("lixing");
             List<Order> orderHistory = orderService.FindOrderByTrader(trader);
 
             ViewData["orderHistory"] = orderHistory;

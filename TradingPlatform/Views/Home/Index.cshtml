@@ -31,6 +31,7 @@
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="~/assets/img/favicon.png">
+
 </head>
 
 <body ng-app="app" ng-controller="ctrl">
@@ -82,9 +83,9 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/assets/img/user.png" class="img-circle" alt="Avatar"> <span>.NetTeamTwo</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                                <li><a href="/order/OrderHistory"><i class="lnr lnr-user"></i> <span>Order History</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
@@ -104,8 +105,8 @@
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
-                        <li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
-                        <li><a href="order/OrderHistory" class=""><i class="lnr lnr-code"></i> <span>Order History</span></a></li>
+                        <li><a href="/home/Index" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+                        <li><a href="/order/OrderHistory" class=""><i class="lnr lnr-code"></i> <span>Order History</span></a></li>
                         <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
                         @*<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
                         <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
@@ -152,7 +153,7 @@
                                             <tr>
                                                 <th type="number">Id</th>
                                                 <th type="string">Symbol</th>
-                                                <th type="string">IsBit</th>
+                                                <th type="string">Side</th>
                                                 <th type="number">Price</th>
                                                 <th type="number">Quantity</th>
                                             </tr>
@@ -163,7 +164,13 @@
                                                 <tr>
                                                     <td>@orderBook.Id</td>
                                                     <td>@orderBook.Symbol</td>
-                                                    <td>@orderBook.IsBit</td>
+                                                        @if (@orderBook.IsBit)
+                                                        {
+                                                            <td>Bit</td>
+                                                        } else
+                                                        {
+                                                            <td>Offer</td>
+                                                        }
                                                     <td>@orderBook.Price</td>
                                                     <td>@orderBook.Quantity</td>
                                                 </tr>
@@ -284,7 +291,7 @@
                                             <label for="symbol">Symbol</label>
                                             <select id="symbol" class="form-control" name="orderBookId">
 
-                                            @foreach (OrderBook orderBook in ViewData["orderBooks"] as List<OrderBook>)
+                                            @foreach (OrderBook orderBook in ViewData["symbols"] as List<OrderBook>)
                                             {
                                                 <option value="@orderBook.Id">@orderBook.Symbol</option>
                                             }
@@ -336,7 +343,7 @@
         <div class="clearfix"></div>
         <footer>
             <div class="container-fluid">
-                <p class="copyright">&copy; 2017 <a href="#" target="_blank">Team 2</a>. All Rights Reserved. More Templates - Collect from</p>
+                <p class="copyright">&copy; 2017 <a href="#">.Net Team 2</a>. All Rights Reserved.</p>
             </div>
         </footer>
     </div>

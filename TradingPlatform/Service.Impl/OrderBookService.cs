@@ -22,7 +22,16 @@ namespace TradingPlatform.Service.Impl
 
         public List<OrderBook> FindAllDistinctBooks()
         {
-            return context.OrderBooks.Distinct().ToList();
+            List<OrderBook> nonDuplicate = new List<OrderBook>();
+
+            foreach (OrderBook orderBook in context.OrderBooks)
+            {
+                if (!nonDuplicate.Exists(x => orderBook.Symbol == x.Symbol))
+                {
+                    nonDuplicate.Add(orderBook);
+                }
+            }
+            return nonDuplicate;
         }
 
         public OrderBook FindOrderBookById(int orderBookId)

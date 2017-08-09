@@ -25,5 +25,10 @@ namespace TradingPlatform.Service.Impl
         {
             return context.Orders.Where(s => s.Trader.Name == trader.Name).ToList();
         }
+
+        public int GetOrderId(Order order)
+        {
+            return context.Orders.Where(s => s.DateTime == order.DateTime).First().Id;
+        }
     }
 }

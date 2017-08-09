@@ -27,6 +27,8 @@ namespace TradingPlatform.Util.Strategy
                 }
                 Execution exection = new Execution();
                 exection.Trades = new List<Trade>();
+                exection.OrderId = order.Id;
+                exection.Order = order;
 
                 if (order.Quantity > total)
                 {
@@ -38,7 +40,9 @@ namespace TradingPlatform.Util.Strategy
                     exection.Trades.Add(new Trade { Id = i, Price = order.Price, Quantity = order.Quantity, IsSuccess = true });
                     i++;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+
+                exection.DateTime = DateTime.Now;
+                return exection;
             }
 
             //卖
@@ -55,6 +59,8 @@ namespace TradingPlatform.Util.Strategy
                 }
                 Execution exection = new Execution();
                 exection.Trades = new List<Trade>();
+                exection.OrderId = order.Id;
+                exection.Order = order;
 
                 if (order.Quantity > total)
                 {
@@ -66,7 +72,10 @@ namespace TradingPlatform.Util.Strategy
                     exection.Trades.Add(new Trade { Id = i, Price = order.Price, Quantity = order.Quantity, IsSuccess = true });
                     i++;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+
+                exection.DateTime = DateTime.Now;
+
+                return exection;
             }
         }
     }
