@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
 using TradingPlatform.Models;
-using TradingPlatform.Service;
 using TradingPlatform.Service.Impl;
+using TradingPlatform.Util.Strategy;
 
 namespace TradingPlatform.Controllers
 {
     public class OrderController : Controller
     {
-        private IExecutionService executionService = new ExecutionService();
-        private IOrderService orderService = new OrderService();
+        public OrderController()
+        {
 
+        }
         // GET: Order
         public ActionResult ForwardAddOrder()
         {
@@ -47,45 +47,30 @@ namespace TradingPlatform.Controllers
             }
 
             Execution execution = MakeTrade(order);
-            executionService.AddExecution(execution);
-
             ViewData["orderExecution"] = execution;
 
             return View("ExecutionDetail");
         }
 
-        public ActionResult ViewAllOrder()
-        {
-            List<Order> orderList = orderService.FindAll();
-            ViewData["allOrders"] = orderList;
-
-            return View("OrderHistory");
-        }
-
-        public ActionResult ViewOneOrderExecution()
-        {
-            string orderId = Request.Params.Get("orderId");
-            Execution execution = null;
-            if (orderId != null)
-                execution = executionService.FindExecutionByOrderId(Convert.ToInt32(orderId));
-
-            ViewData["orderExecution"] = execution;
-            return View("OrderDetail");
-        }
-
-        public ActionResult AddMonitoredOrder()
-        {
-            string orderId = Request.Params.Get("orderId");
-
-            return View();
-        }
-
         private Execution MakeTrade(Order order)
         {
-            if (order.Strategy.Name == "IOC")
+            if (order.Strategy.Name == "IOCStrategy")
+            {
+                IOCStrategy ioc = new IOCStrategy();
+                return ioc.buyorsell(order);
+            }
+            else if (order.Strategy.Name == "MarketPriceStrategy")
+            {
+                MarketPriceStrategy mk = new MarketPriceStrategy();
+                return mk.buyorsell(order);
+            }
+            else if (order.Strategy.Name == "FOKStrategy")
+            {
+                FOKStrategy fok = new FOKStrategy();
+                return fok.buyorsell(order);
+            }
+            else
                 return null;
-            
-            return null;
         }
     }
 }
