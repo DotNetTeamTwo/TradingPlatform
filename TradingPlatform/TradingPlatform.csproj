@@ -212,7 +212,6 @@
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\login-bg.jpg" />
     <Content Include="assets\img\logo-dark.png" />
-    <Content Include="assets\img\moneyLogo.png" />
     <Content Include="assets\img\profile-bg.png" />
     <Content Include="assets\img\user-medium.png" />
     <Content Include="assets\img\user.png" />
@@ -286,7 +285,6 @@
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Home\Index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

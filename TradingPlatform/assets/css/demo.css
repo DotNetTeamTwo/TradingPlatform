@@ -28,16 +28,5 @@
   clear: both;
 }
 
-th {
-    cursor: pointer; /*光标呈现为指示链接的指针（一只手）*/
-}
-
-.sequence {
-    text-align: center;
-}
-
-.hover {
-    background-color: lightblue;
-}
 /*# sourceMappingURL=demo.css.map */
 
