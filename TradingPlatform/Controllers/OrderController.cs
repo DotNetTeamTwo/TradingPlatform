@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using TradingPlatform.Models;
 using TradingPlatform.Service.Impl;
+using TradingPlatform.Util.Strategy;
 
 namespace TradingPlatform.Controllers
 {
@@ -53,7 +54,24 @@ namespace TradingPlatform.Controllers
 
         private Execution MakeTrade(Order order)
         {
-            return null;
+            if (order.Strategy.Name == "IOCStrategy")
+            {
+                IOCStrategy ioc = new IOCStrategy();
+                return ioc.buyorsell(order);
+            }
+            else if (order.Strategy.Name == "MarketPriceStrategy")
+            {
+                MarketPriceStrategy mk = new MarketPriceStrategy();
+                return mk.buyorsell(order);
+            }
+            else if (order.Strategy.Name == "FOKStrategy")
+            {
+                FOKStrategy fok = new FOKStrategy();
+                return fok.buyorsell(order);
+            }
+            else
+                return null;
+            
         }
     }
 }
