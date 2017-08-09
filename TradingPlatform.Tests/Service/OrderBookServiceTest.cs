@@ -36,7 +36,7 @@ namespace TradingPlatform.Tests.Service
                 double price = Convert.ToDouble(lists[i][2]);
                 int quantity = Convert.ToInt32(lists[i][3]);
                 string symbol = lists[i][0];
-                OrderBook orderBook = new OrderBook { IsBit = isBit, Orders = null, Price = price, Quantity = quantity, Symbol = symbol, Traders = null };
+                OrderBook orderBook = new OrderBook { IsBit = isBit, Price = price, Quantity = quantity, Symbol = symbol };
                 service.AddOrderBooK(orderBook);
             }
         }

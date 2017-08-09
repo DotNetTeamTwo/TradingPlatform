@@ -22,18 +22,19 @@ namespace TradingPlatform.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>().HasRequired(s => s.Trader).WithMany(s => s.Orders);
-            modelBuilder.Entity<Order>().HasRequired(s => s.Strategy).WithMany(s => s.Orders);
-            modelBuilder.Entity<Order>().HasRequired(s => s.OrderBook).WithMany(s => s.Orders);
-            modelBuilder.Entity<Trade>().HasRequired(s => s.Execution).WithMany(s => s.Trades);
+            //modelBuilder.Entity<Order>().HasRequired(s => s.Trader).WithMany(s => s.Orders);
+            //modelBuilder.Entity<Order>().HasRequired(s => s.Strategy).WithMany(s => s.Orders);
+            //modelBuilder.Entity<Order>().HasRequired(s => s.OrderBook).WithMany(s => s.Orders);
+            //.Entity<Trade>().HasRequired(s => s.Execution).WithMany(s => s.Trades);
 
             modelBuilder.Entity<Execution>().HasRequired(s => s.Order).WithOptional(s => s.Execution);
-            modelBuilder.Entity<Trader>().HasMany(s => s.OrderBooks).WithMany(s => s.Traders).Map
-                (s => {
-                    s.MapLeftKey("TraderId");
-                    s.MapRightKey("OrderBookId");
-                    s.ToTable("MonitoredStock");
-                });
+            //modelBuilder.Entity<Trader>().HasMany(s => s.OrderBooks).WithMany(s => s.Traders).Map
+            //    (s =>
+            //    {
+            //        s.MapLeftKey("TraderId");
+            //        s.MapRightKey("OrderBookId");
+            //        s.ToTable("MonitoredStock");
+            //    });
 
             base.OnModelCreating(modelBuilder);
         }

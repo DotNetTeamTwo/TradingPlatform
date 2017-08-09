@@ -15,7 +15,6 @@ namespace TradingPlatform.Models
         public string Name { get; set; }
         public string Gender { get; set; }
 
-        public virtual ICollection<OrderBook> OrderBooks { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        //public virtual ICollection<Order> Orders { get; set; }
     }
 }

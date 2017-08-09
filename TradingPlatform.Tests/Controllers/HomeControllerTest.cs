@@ -57,7 +57,7 @@ namespace TradingPlatform.Tests.Controllers
         {
             using (DBContext context = new DBContext())
             {
-                context.Traders.Add(new Trader { Id = 1, Gender = "Male", Name = "lixing", Orders = null, OrderBooks = null });
+                context.Traders.Add(new Trader { Id = 1, Gender = "Male", Name = "lixing"});
                 context.SaveChanges();
 
                 Trader Trader = context.Traders.Find(1);

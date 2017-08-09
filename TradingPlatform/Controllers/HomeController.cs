@@ -14,7 +14,7 @@ namespace TradingPlatform.Controllers
 
         public ActionResult Index()
         {
-            List<OrderBook> orderBooks = orderBookService.FindAllOrderBooks();
+            List<OrderBook> orderBooks = orderBookService.FindAllDistinctBooks();
             List<Strategy> strategies = strategyService.FindAllStrategies();
             Trader trader = traderService.FindTraderByName("lx");
 

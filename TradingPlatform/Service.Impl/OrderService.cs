@@ -13,6 +13,7 @@ namespace TradingPlatform.Service.Impl
         public void AddOrder(Order order)
         {
             context.Orders.Add(order);
+            context.SaveChanges();
         }
 
         public List<Order> FindAll()

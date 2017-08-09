@@ -21,7 +21,8 @@ namespace TradingPlatform.Service.Impl
 
         public List<OrderBook> FindMonitoredStockByTrader(int traderId)
         {
-            return context.Traders.Where(s => s.Id == traderId).First().OrderBooks.ToList();
+            return null;
+            //return context.Traders.Where(s => s.Id == traderId).First().OrderBooks.ToList();
         }
     }
 }

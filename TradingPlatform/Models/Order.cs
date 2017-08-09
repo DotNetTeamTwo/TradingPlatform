@@ -17,9 +17,14 @@ namespace TradingPlatform.Models
         public int Quantity { get; set; }
         public double Price { get; set; }
 
-        public virtual Strategy Strategy { get; set; }
+        public int StrategyId { get; set; }
+        public int ExecutionId { get; set; }
+        public int OrderBookId { get; set; }
+        //public int TraderId { get; set; }
+
+        //public virtual Strategy Strategy { get; set; }
         public virtual Execution Execution { get; set; }
-        public virtual OrderBook OrderBook { get; set; }
+        //public virtual OrderBook OrderBook { get; set; }
         public virtual Trader Trader { get; set; }
     }
 }

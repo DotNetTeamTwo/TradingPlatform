@@ -109,6 +109,8 @@
     <Compile Include="Service\TraderServiceTest.cs" />
     <Compile Include="Service\TradeServiceTest.cs" />
     <Compile Include="Service\StrategyServiceTest.cs" />
+    <Compile Include="Service\UnitTest1.cs" />
+    <Compile Include="Service\UnitTest2.cs" />
     <Compile Include="Util\ExcelUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>

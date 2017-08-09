@@ -20,8 +20,8 @@ namespace TradingPlatform.Tests.Service
         [TestMethod]
         public void TestAddTrader()
         {
-            Trader trader1 = new Trader { Name = "lx", Gender = "Male", Orders = null, OrderBooks = null };
-            Trader trader2 = new Trader { Name = "zsl", Gender = "Female", Orders = null, OrderBooks = null };
+            Trader trader1 = new Trader { Name = "lx", Gender = "Male"};
+            Trader trader2 = new Trader { Name = "zsl", Gender = "Female"};
 
             service.AddTrader(trader1);
             service.AddTrader(trader2);

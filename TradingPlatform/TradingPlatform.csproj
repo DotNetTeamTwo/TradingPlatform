@@ -212,6 +212,7 @@
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\login-bg.jpg" />
     <Content Include="assets\img\logo-dark.png" />
+    <Content Include="assets\img\moneyLogo.png" />
     <Content Include="assets\img\profile-bg.png" />
     <Content Include="assets\img\user-medium.png" />
     <Content Include="assets\img\user.png" />
@@ -285,6 +286,8 @@
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Home\Index.js" />
+    <Content Include="Scripts\Home\orderHistory.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -310,7 +313,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\AddOrder.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Order\ExecutionDetail.cshtml" />
+    <Content Include="Views\Order\OrderHistory.cshtml" />
+    <Content Include="Views\Order\OrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

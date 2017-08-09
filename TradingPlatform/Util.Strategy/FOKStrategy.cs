@@ -11,8 +11,9 @@ namespace TradingPlatform.Util.Strategy
     {
         public Execution buyorsell(Order order)
         {
-            OrderBook orderBook = order.OrderBook;
-            List<OrderBook> orderBookList = new OrderBookService().FindOrderBookBySymbol(orderBook.Symbol);
+            OrderBookService orderBookService = new OrderBookService();
+            OrderBook orderBook = orderBookService.FindOrderBookById(order.OrderBookId);
+            List<OrderBook> orderBookList = orderBookService.FindOrderBookBySymbol(orderBook.Symbol);
             if (order.IsBuy)
             {
                 var total = 0;

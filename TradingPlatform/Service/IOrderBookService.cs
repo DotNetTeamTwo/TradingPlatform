@@ -13,5 +13,6 @@ namespace TradingPlatform.Service
         OrderBook FindOrderBookById(int orderBookId);
         List<OrderBook> FindOrderBookBySymbol(string symbol);
         List<OrderBook> FindAllOrderBooks();
+        List<OrderBook> FindAllDistinctBooks();
     }
 }
