@@ -181,7 +181,25 @@
                                                     <td>Offer</td>
                                                 }
                                                 <td>@order.DateTime</td>
-                                                <td>need change</td>
+                                                @{ 
+                                                    List<Trade> list = order.Execution.Trades.ToList();
+                                                    bool isSuccess = false;
+                                                    foreach (Trade trade in list)
+                                                    {
+                                                        if (trade.IsSuccess)
+                                                        {
+                                                            isSuccess = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                    string result = "Rejected";
+                                                    if (isSuccess)
+                                                    {
+                                                        result = "Completed";
+                                                    }
+                                                    
+                                                }
+                                                <td>@result</td>
                                                 <td><a class="btn btn-xs active" vertical-align="center" role="button" data-toggle="collapse" href="#@order.Id" aria-expanded="false" aria-controls="collapseExample">details</a></td>
                                             </tr>
                                             <tr>
@@ -205,7 +223,15 @@
                                                                         <tr>
                                                                             <td>@trade.Price</td>
                                                                             <td>@trade.Quantity</td>
-                                                                            <td>@trade.IsSuccess</td>
+                                                                            @if (trade.IsSuccess)
+                                                                            {
+                                                                                <td>Completed</td>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <td>Rejected</td>
+                                                                            }
+
                                                                         </tr>
 
                                                                     }

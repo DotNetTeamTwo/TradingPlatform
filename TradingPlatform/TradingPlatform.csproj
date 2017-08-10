@@ -168,6 +168,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -198,7 +199,6 @@
     <Compile Include="Util.Strategy\FOKStrategy.cs" />
     <Compile Include="Util.Strategy\GTCStrategy.cs" />
     <Compile Include="Util.Strategy\IOCStrategy.cs" />
-    <Compile Include="Util.Strategy\LimitOrderStrategy.cs" />
     <Compile Include="Util.Strategy\MarketPriceStrategy.cs" />
     <Compile Include="Util\CSVUtil.cs" />
     <Compile Include="Util\ExcelUtil.cs" />
@@ -318,6 +318,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Order\OrderHistory.cshtml" />
     <Content Include="Views\Order\OrderDetail.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

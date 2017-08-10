@@ -107,7 +107,7 @@
 
 $("#strage").change(function () {
     var choice = $(this).val();
-    if (choice == "1" || choice == "2") {
+    if (choice == 1 || choice == 2) {
         $('#price').attr("disabled", true);
     } else {
         $('#price').attr("disabled", false);

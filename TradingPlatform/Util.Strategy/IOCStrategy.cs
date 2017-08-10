@@ -14,6 +14,7 @@ namespace TradingPlatform.Util.Strategy
             OrderBookService orderBookService = new OrderBookService();
             OrderBook orderBook = orderBookService.FindOrderBookById(order.OrderBookId);
             List<OrderBook> orderBookList = new OrderBookService().FindOrderBookBySymbol(orderBook.Symbol);
+            int orginQuantity = order.Quantity;
             //买
             if (order.IsBuy)
             {
@@ -28,6 +29,7 @@ namespace TradingPlatform.Util.Strategy
                 }
                 Execution exection = new Execution();
                 exection.Trades = new List<Trade>();
+                exection.Order = order;
 
                 if (order.Quantity < total)
                 {
@@ -45,6 +47,8 @@ namespace TradingPlatform.Util.Strategy
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
                 else
                 {
@@ -59,13 +63,17 @@ namespace TradingPlatform.Util.Strategy
                         }
                         else
                         {
-                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = orderBookList[i].Quantity, IsSuccess = true });
+                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = order.Quantity, IsSuccess = true });
                         }
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+
+                exection.DateTime = DateTime.Now;
+                return exection;
             }
             //卖
             else
@@ -98,6 +106,8 @@ namespace TradingPlatform.Util.Strategy
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
                 else
                 {
@@ -111,13 +121,17 @@ namespace TradingPlatform.Util.Strategy
                         }
                         else
                         {
-                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = orderBookList[i].Quantity, IsSuccess = true });
+                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = order.Quantity, IsSuccess = true });
                         }
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+
+                exection.DateTime = DateTime.Now;
+                return exection;
             }
         }
     }

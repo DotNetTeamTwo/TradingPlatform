@@ -17,7 +17,7 @@ namespace TradingPlatform.Controllers
             List<OrderBook> orderBooks = orderBookService.FindAllOrderBooks();
             List<OrderBook> symbols = orderBookService.FindAllDistinctBooks();
             List<Strategy> strategies = strategyService.FindAllStrategies();
-            Trader trader = traderService.FindTraderByName("lixing");
+            Trader trader = traderService.FindTraderByName("lx");
 
             ViewData["orderBooks"] = orderBooks;
             ViewData["symbols"] = symbols;
@@ -25,6 +25,23 @@ namespace TradingPlatform.Controllers
             ViewData["trader"] = trader;
 
             return View();
+        }
+
+        public ActionResult ForwardLogin()
+        {
+            return View("Login");
+        }
+
+        // GET: Login
+        public void Login()
+        {
+            string username = Request.Form["username"];
+            string password = Request.Form["password"];
+
+            Trader trader = traderService.FindTraderByName(username);
+            Session["trader"] = trader;
+
+            Response.Redirect("/home/Index");
         }
 
         public ActionResult About()

@@ -14,6 +14,8 @@ namespace TradingPlatform.Util.Strategy
             OrderBookService orderBookService = new OrderBookService();
             OrderBook orderBook = orderBookService.FindOrderBookById(order.OrderBookId);
             List<OrderBook> orderBookList = orderBookService.FindOrderBookBySymbol(orderBook.Symbol);
+
+            int orginQuantity = order.Quantity;
             if (order.IsBuy)
             {
                 orderBookList.Sort(delegate (OrderBook x, OrderBook y)
@@ -49,8 +51,11 @@ namespace TradingPlatform.Util.Strategy
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+                exection.DateTime = DateTime.Now;
+                return exection;
             }
             //卖
             else
@@ -87,8 +92,12 @@ namespace TradingPlatform.Util.Strategy
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
+
+                    order.Quantity = orginQuantity;
                 }
-                return (new Execution { Order = order, DateTime = DateTime.Now, Trades = exection.Trades });
+
+                exection.DateTime = DateTime.Now;
+                return exection;
             }
         }
 

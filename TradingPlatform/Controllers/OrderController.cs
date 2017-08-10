@@ -48,7 +48,7 @@ namespace TradingPlatform.Controllers
                 order.Price = Convert.ToInt32(price);
             }
 
-            orderService.AddOrder(order);
+            //orderService.AddOrder(order);
             //int id  = orderService.GetOrderId(order);
 
             Execution execution = MakeTrade(order);
@@ -81,7 +81,8 @@ namespace TradingPlatform.Controllers
             }
             else if (strategyName == "GTC")
             {
-                return null;
+                GTCStrategy gtcStrategy = new GTCStrategy();
+                return gtcStrategy.buyorsell(order);
             }
             else
                 return null;
@@ -89,7 +90,7 @@ namespace TradingPlatform.Controllers
 
         public ActionResult OrderHistory()
         {
-            Trader trader = traderService.FindTraderByName("lixing");
+            Trader trader = traderService.FindTraderByName("lx");
             List<Order> orderHistory = orderService.FindOrderByTrader(trader);
                                      
             ViewData["orderHistory"] = orderHistory;

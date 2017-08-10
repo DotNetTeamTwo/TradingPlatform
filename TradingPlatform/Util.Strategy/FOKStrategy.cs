@@ -14,6 +14,7 @@ namespace TradingPlatform.Util.Strategy
             OrderBookService orderBookService = new OrderBookService();
             OrderBook orderBook = orderBookService.FindOrderBookById(order.OrderBookId);
             List<OrderBook> orderBookList = orderBookService.FindOrderBookBySymbol(orderBook.Symbol);
+
             if (order.IsBuy)
             {
                 var total = 0;
