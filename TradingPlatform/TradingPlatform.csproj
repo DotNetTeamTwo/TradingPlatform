@@ -204,6 +204,7 @@
     <Compile Include="Util\ExcelUtil.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap-table.css" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\demo.css" />
@@ -286,6 +287,8 @@
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
     <Content Include="assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Home\bootstrap-table-toolbar.js" />
+    <Content Include="Scripts\Home\bootstrap-table.js" />
     <Content Include="Scripts\Home\Index.js" />
     <Content Include="Scripts\Home\orderHistory.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
