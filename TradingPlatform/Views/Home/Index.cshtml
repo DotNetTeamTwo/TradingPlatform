@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap-table.css"/>
     <link rel="stylesheet" href="~/assets/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/assets/vendor/linearicons/style.css">
     <link rel="stylesheet" href="~/assets/vendor/chartist/css/chartist-custom.css">
@@ -148,14 +149,22 @@
                                 </div>
                                 <div class="panel-body no-padding">
 
-                                    <table class="table table-striped" id="orderBookList">
+                                    <table class="table table-striped" id="orderBookList"
+                                           data-toggle="table"
+                                           data-pagination="true"
+                                           data-page-size="5"
+                                           data-page-list="[5,10,15]"
+                                           data-search="true"
+                                           data-advanced-search="true"
+                                           data-id-table="advancedTable"
+                                           >
                                         <thead>
                                             <tr>
-                                                <th type="number">Id</th>
-                                                <th type="string">Symbol</th>
-                                                <th type="string">Side</th>
-                                                <th type="number">Price</th>
-                                                <th type="number">Quantity</th>
+                                                <th data-sortable="true">Id</th>
+                                                <th data-sortable="true">Symbol</th>
+                                                <th data-sortable="true">IsBit</th>
+                                                <th data-sortable="true">Price</th>
+                                                <th data-sortable="true">Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -355,6 +364,9 @@
     <script src="~/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
     <script src="~/assets/vendor/chartist/js/chartist.min.js"></script>
     <script src="~/assets/scripts/klorofil-common.js"></script>
+
+    <script src="~/Scripts/Home/bootstrap-table.js"></script>
+    <script src="~/Scripts/Home/bootstrap-table-toolbar.js"></script>
     @*<script src="~/Scripts/angular.min.js"></script>*@
     <!--Index.js-->
     <script src="~/Scripts/Home/Index.js"></script>
