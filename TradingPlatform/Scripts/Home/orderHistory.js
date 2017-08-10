@@ -12,8 +12,8 @@ $("#orderHistory tr:gt(0)").each(function(i){
             $(this).parent().addClass("success");
         }else if($(this).text()=="Processing"){
             $(this).parent().addClass("active");
-        }else if($(this).text()=="rejection"){
-            $(this).parent().addClass("warning");
+        }else if($(this).text()=="Rejected"){
+            $(this).parent().addClass("danger");
         }
     });
 });

@@ -162,14 +162,14 @@
                         <!-- Order Book展示-->
                         <div class="col-md-8">
                             <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Order Book</h3>
-                                    <h4 id="stock-type">--abt</h4>
+                                <div class="panel-heading" style="padding-bottom:0">
+                                    <h3 style="padding:0;margin:0">Order Book</h3>
+                                    @*<h4 id="stock-type">--abt</h4>*@
                                     <div class="right">
                                         <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
                                     </div>
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body" style="padding-top:0">
 
                                     <table class="table table-striped" id="orderBookList"
                                            data-toggle="table"
@@ -212,8 +212,8 @@
                                 <div class="panel-footer">
                                     <div class="row">                          
 
-                                        <div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Last 24 hours</span></div>
-                                        <div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Purchases</a></div>
+                                        <div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> market-data</span></div>
+                                    @*    <div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Purchases</a></div>*@
                                     </div>
                                 </div>
                             </div>
@@ -339,21 +339,17 @@
                                         <div class="form-group">
                                             <label for="qty">Qty</label>
                                             <input id="qty" class="form-control" name="quantity"/>
+                                            <span id="qtyError" style="color:red;">Please input integer</span>
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Price</label>
                                             <input id="price" class="form-control" disabled="disabled" name="price" />
+                                            <span id="priceError" style="color:red;">Please input inpeger or decimal</span>
                                         </div>
-                                        @*<div class="form-group">
-                                            <input id="aa" type="submit" value="Submit" class="form-control btn btn-primary" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input id="reset" type="reset" value="Reset" class="form-control btn btn-danger" />
-                                        </div>*@
 
                                         <div class="form-group">
-                                            <label for="aa">&nbsp;</label>
-                                            <button id="aa" type="submit" value="Submit" class="form-control btn btn-primary">Submit</button>
+                                            <label for="formSubmit">&nbsp;</label>
+                                            <button id="formSubmit" type="submit" value="Submit" class="form-control btn btn-primary">Submit</button>
                                         </div>
                                         <div class="form-group">
                                             <label for="aa">&nbsp;</label>

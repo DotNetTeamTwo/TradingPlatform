@@ -105,11 +105,85 @@
 
 //})
 
+var choice;
 $("#strage").change(function () {
-    var choice = $(this).val();
+    choice = $(this).val();
     if (choice == 1 || choice == 2) {
         $('#price').attr("disabled", true);
     } else {
         $('#price').attr("disabled", false);
     }
+});
+
+
+//验证表单输入
+$(document).ready(function () {
+    $("#qtyError").hide();
+    $("#priceError").hide();
+
+    $("#formSubmit").click(function () {
+        var ok1 = false;
+        var ok2 = false;
+
+        var $val = $("#qty").val();
+        var $val2 = $("#price").val();
+        var code1;
+        var code2;
+        for (var i = 0; i < $val.length; i++) {
+            //charAt()获取指定位置字符串,charCodeAt()返回该字符串的编码
+            //0的ASCII是48,9的ASCII是57
+            var code1 = $val.charAt(i).charCodeAt(0);
+            if (code1 < 48 || code1 > 57) {
+                $("#qtyError").show();
+                ok1 = false;
+                break;
+            }
+            else {
+                $("#qtyError").hide();
+                ok1 = true;
+            }
+        }
+
+        if (choice == "1" || choice == "2") {
+            ok2 = true;
+        } else {
+            var dotNum = 0;
+            for (var i = 0; i < $val2.length; i++) {
+                //charAt()获取指定位置字符串,charCodeAt()返回该字符串的编码
+                //0的ASCII是48,9的ASCII是57
+                var code2 = $val2.charAt(i).charCodeAt(0);
+                if (code2 < 48 || code2 > 57) {
+                    if (code2 = 46) {
+                        if (i == 0 || i == $val2.length - 1) {
+                            $("#priceError").show();
+                            ok2 = false;
+                            break;
+                        } else {
+                            dotNum++;
+                        }
+                        if (dotNum > 1) {
+                            $("#priceError").show();
+                            ok2 = false;
+                            break;
+                        }
+                    } else {
+                        $("#priceError").show();
+                        ok2 = false;
+                        break;
+                    }
+
+                }
+                else {
+                    $("#priceError").hide();
+                    ok2 = true;
+                }
+            }
+        }
+
+        if (ok1 == true && ok2 == true) {
+            return $('#order').submit();
+        } else {
+            return false;
+        }
+    });
 });
