@@ -33,6 +33,7 @@ namespace TradingPlatform.Util.Strategy
                 if (order.Quantity > total)
                 {
                     exection.Trades.Add(new Trade { Id = order.Id, Price = order.Price, Quantity = order.Quantity, IsSuccess = false });
+                    order.Status = "Rejected";
                 }
                 else
                 {
@@ -52,8 +53,10 @@ namespace TradingPlatform.Util.Strategy
                         i++;
                     }
 
+                    order.Status = "Completed";
                     order.Quantity = orginQuantity;
                 }
+
                 exection.DateTime = DateTime.Now;
                 return exection;
             }
@@ -74,6 +77,7 @@ namespace TradingPlatform.Util.Strategy
                 if (order.Quantity > total)
                 {
                     exection.Trades.Add(new Trade { Id = order.Id, Price = order.Price, Quantity = order.Quantity, IsSuccess = false });
+                    order.Status = "Rejected";
                 }
                 else
                 {
@@ -83,16 +87,17 @@ namespace TradingPlatform.Util.Strategy
 
                         if (order.Quantity < orderBookList[i].Quantity)
                         {
-                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = order.Quantity, IsSuccess = true });
+                            exection.Trades.Add(new Trade { Price = orderBookList[i].Price, Quantity = order.Quantity, IsSuccess = true });
                         }
                         else
                         {
-                            exection.Trades.Add(new Trade { Id = i, Price = orderBookList[i].Price, Quantity = orderBookList[i].Quantity, IsSuccess = true });
+                            exection.Trades.Add(new Trade { Price = orderBookList[i].Price, Quantity = orderBookList[i].Quantity, IsSuccess = true });
                         }
                         order.Quantity = order.Quantity - orderBookList[i].Quantity;
                         i++;
                     }
 
+                    order.Status = "Completed";
                     order.Quantity = orginQuantity;
                 }
 

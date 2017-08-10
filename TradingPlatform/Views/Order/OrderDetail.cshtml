@@ -83,7 +83,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                                <li><a href="/order/OrderHistory"><i class="lnr lnr-user"></i> <span>Order History</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
@@ -116,7 +116,7 @@
             <!-- MAIN CONTENT -->
             <div class="main-content">
                 <div class="container-fluid">
-                    <h3 class="page-title">My Account</h3>
+                    <h3 class="page-title">Order Detail</h3>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel">
@@ -156,7 +156,7 @@
                                                 <th type="number">QTY</th>
                                                 <th type="string">Side</th>
                                                 <th type="string">Time</th>
-                                                @*<th type="string">Status</th>*@
+                                                <th type="string">Status</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>
@@ -184,14 +184,9 @@
                                                     <td>Offer</td>
                                                 }
                                                 <td>@execution.Order.DateTime</td>
-                                                @*@if ()
-                                                {
-                                                    <td>need change</td>
-                                                }
-                                                else
-                                                {
-                                                    <td>need change</td>
-                                                }*@
+                                  
+                                                <td>@execution.Order.Status</td>
+                                                
                                                 <td><a class="btn btn-xs active" vertical-align="center" role="button" data-toggle="collapse" href="#@execution.Order.Id" aria-expanded="false" aria-controls="collapseExample">details</a></td>
                                             </tr>
                                                 <tr>

@@ -34,12 +34,14 @@ namespace TradingPlatform.Util.Strategy
                 if (order.Quantity > total)
                 {
                     exection.Trades.Add(new Trade { Id = order.Id, Price = order.Price, Quantity = order.Quantity, IsSuccess = false });
+                    order.Status = "Rejected";
                 }
                 else
                 {
                     int i = 0;
                     exection.Trades.Add(new Trade { Id = i, Price = order.Price, Quantity = order.Quantity, IsSuccess = true });
                     i++;
+                    order.Status = "Completed";
                 }
 
                 exection.DateTime = DateTime.Now;
@@ -66,12 +68,14 @@ namespace TradingPlatform.Util.Strategy
                 if (order.Quantity > total)
                 {
                     exection.Trades.Add(new Trade { Id = order.Id, Price = order.Price, Quantity = order.Quantity, IsSuccess = false });
+                    order.Status = "Rejected";
                 }
                 else
                 {
                     int i = 0;
                     exection.Trades.Add(new Trade { Id = i, Price = order.Price, Quantity = order.Quantity, IsSuccess = true });
                     i++;
+                    order.Status = "Completed";
                 }
 
                 exection.DateTime = DateTime.Now;

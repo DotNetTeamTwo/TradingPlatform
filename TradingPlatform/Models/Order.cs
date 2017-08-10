@@ -20,6 +20,7 @@ namespace TradingPlatform.Models
         public int StrategyId { get; set; }
         public int ExecutionId { get; set; }
         public int OrderBookId { get; set; }
+        public string Status { get; set; }
         //public int TraderId { get; set; }
 
         //public virtual Strategy Strategy { get; set; }

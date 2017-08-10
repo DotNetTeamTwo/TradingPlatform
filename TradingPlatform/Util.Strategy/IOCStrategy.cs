@@ -49,6 +49,7 @@ namespace TradingPlatform.Util.Strategy
                     }
 
                     order.Quantity = orginQuantity;
+                    order.Status = "Completed";
                 }
                 else
                 {
@@ -70,6 +71,7 @@ namespace TradingPlatform.Util.Strategy
                     }
 
                     order.Quantity = orginQuantity;
+                    order.Status = "Completed";
                 }
 
                 exection.DateTime = DateTime.Now;
@@ -107,6 +109,7 @@ namespace TradingPlatform.Util.Strategy
                         i++;
                     }
 
+                    order.Status = "Completed";
                     order.Quantity = orginQuantity;
                 }
                 else
@@ -127,6 +130,7 @@ namespace TradingPlatform.Util.Strategy
                         i++;
                     }
 
+                    order.Status = "Completed";
                     order.Quantity = orginQuantity;
                 }
 

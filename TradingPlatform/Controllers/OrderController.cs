@@ -45,7 +45,7 @@ namespace TradingPlatform.Controllers
             order.OrderBookId = Convert.ToInt32(orderBookId);
             if (price != null)
             {
-                order.Price = Convert.ToInt32(price);
+                order.Price = Convert.ToDouble(price);
             }
 
             //orderService.AddOrder(order);

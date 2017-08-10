@@ -181,7 +181,7 @@
                                                     <td>Offer</td>
                                                 }
                                                 <td>@order.DateTime</td>
-                                                @{ 
+                                                @*@{ 
                                                     List<Trade> list = order.Execution.Trades.ToList();
                                                     bool isSuccess = false;
                                                     foreach (Trade trade in list)
@@ -198,8 +198,8 @@
                                                         result = "Completed";
                                                     }
                                                     
-                                                }
-                                                <td>@result</td>
+                                                }*@
+                                                <td>@order.Status</td>
                                                 <td><a class="btn btn-xs active" vertical-align="center" role="button" data-toggle="collapse" href="#@order.Id" aria-expanded="false" aria-controls="collapseExample">details</a></td>
                                             </tr>
                                             <tr>
