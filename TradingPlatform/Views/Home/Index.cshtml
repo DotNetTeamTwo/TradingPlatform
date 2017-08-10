@@ -32,6 +32,27 @@
     <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="~/assets/img/favicon.png">
 
+    <script type="text/javascript">
+        function SearchStock() {
+            //alert($("#searchBox").val());
+            console.log($("#searchBox").val());
+            $.ajax({
+                type: "get",
+                url: "order/SearchStock",
+                data: { stockName:$('#searchBox').val() },
+                async: true,
+                dataType:"json",
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (XMLHttpRequest, textStatus) {
+
+                    alert(XMLHttpRequest.status);
+                }
+            });
+        }
+    </script>
+
 </head>
 
 <body ng-app="app" ng-controller="ctrl">
@@ -50,8 +71,8 @@
                 </div>
                 <form class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input type="text" value="" class="form-control" placeholder="Search dashboard...">
-                        <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+                        <input id="searchBox" type="text" value="123" class="form-control" placeholder="Search dashboard...">
+                        <span class="input-group-btn"><button type="button" class="btn btn-primary" onclick="SearchStock()">Go</button></span>
                     </div>
                 </form>
                 @*<div class="navbar-btn navbar-btn-right">

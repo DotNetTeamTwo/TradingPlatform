@@ -91,10 +91,16 @@ namespace TradingPlatform.Controllers
         {
             Trader trader = traderService.FindTraderByName("lixing");
             List<Order> orderHistory = orderService.FindOrderByTrader(trader);
-
+                                     
             ViewData["orderHistory"] = orderHistory;
 
             return View();
+        }
+
+        public JsonResult SearchStock()
+        {
+            string stockName = Request.Form["stockName"];
+            return Json(new Trader { Name = "lixing", Gender = "Male", Id = 1 });
         }
     }
 }
